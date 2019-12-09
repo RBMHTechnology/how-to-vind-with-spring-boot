@@ -52,7 +52,9 @@ A simple unit test is shown [here](./src/test/java/at/redlink/vinddemo/service/S
 might end up in dependency hell if you want to use it for more complex test (that uses Spring Boot context e.g.). Therefore we suggest to use testcontainers.
 
 ### Complex tests using VIND testcontainers
-
+In a [special test](./src/test/java/at/redlink/vinddemo/service/ServiceTestWithTestcontainers.java) we show how a specific VIND testcontainer (based on [Docker testcontainers](https://www.testcontainers.org/)) can be used as a proper VIND backend for integration tests.
+This is the preferable usage, as there are quite some dependency issues with Embedded Solr and Spring Boot, as already mentioned. If you want to try the test and on mac, please be sure that docker is running.
+Note, that the testcontainer is currently only available as snapshot, but there will be a release soon.
 
 ## Heath Check
 In  order to check the health of the VIND endpoint you can use the VIND built in status check and [expose it as health indicator](./src/main/java/at/redlink/vinddemo/health/VindHealthIndicator.java).
